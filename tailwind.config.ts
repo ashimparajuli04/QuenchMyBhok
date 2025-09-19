@@ -11,9 +11,11 @@ const config: Config = {
       colors: {
         pinkish: "#FE7272",
         darkPurple: "#412234",
+        yellowish:"#EAFFD0",
       },
       fontFamily: {
         jolly: ['JollyLodger', 'sans-serif'],
+        bagel: ['BagelFatOne','sans-serif'],
       },
     },
   },
