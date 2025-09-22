@@ -30,16 +30,12 @@ const Page = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-pinkish flex justify-center items-center relative overflow-hidden">
-      
-      {/* Overlay for closing login on mobile */}
-      {showLogin && isMobile && (
-        <div 
-          className="absolute inset-0 bg-opacity-20 z-10"
-          onClick={handleCloseLogin}
-        />
-      )}
-
+    <div className={`w-screen h-screen bg-pinkish flex relative overflow-hidden ${
+      isMobile
+      ?"pt-[20vw] flex-col items-center justify-start"
+      :"items-center justify-center"
+      }`}>
+        
       {/* Main content area */}
       <Splash
         showLogin={showLogin}

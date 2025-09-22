@@ -6,7 +6,10 @@ interface CircleArrowButtonProps {
   onClick?: () => void;
 }
 
-const CircleArrowButton: React.FC<CircleArrowButtonProps> = ({ className, onClick }) => {
+const CircleArrowButton: React.FC<CircleArrowButtonProps> = ({
+  className,
+  onClick,
+}) => {
   return (
     <motion.button
       whileHover={{ scale: 1.1 }}

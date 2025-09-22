@@ -2,9 +2,10 @@
 import React from 'react'
 import Image from "next/image";
 
-import Logo from "@/components/Logo";
+import Logo from "@/components/ui/Logo";
 import StaggeredText from "@/components/animations/StaggeredText";
-import CircleArrowButton from "@/components/ui/CircleArrowButton";
+import CircleArrowButton from "@/components/ui/circleArrowButton";
+
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -31,8 +32,11 @@ const Splash : React.FC<SplashProps> = ({
           width: showLogin ? (isMobile ? "80vw" : "40vw") : (isMobile ? "90vw" : "45vw")
         }}
         transition={{ duration: animationDuration, ease: "easeInOut" }} 
-        className="w-[90vw] md:w-[50vw] aspect-square flex flex-col absolute justify-center items-center z-20"
-        onClick={showLogin && !isMobile ? onClose : undefined}
+        className="w-[90vw] md:w-[50vw] aspect-square flex flex-col absolute justify-center items-center z-1"
+        onClick={showLogin && !isMobile 
+          ? onClose 
+          : undefined
+        }
       >
         {/* Logo */}
         <div className="relative w-full aspect-[730/156]">
@@ -51,11 +55,11 @@ const Splash : React.FC<SplashProps> = ({
         <AnimatePresence>
           {!showLogin && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8, height: 0, marginTop: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="flex justify-center my-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             >
               <CircleArrowButton
                 className="text-yellowish w-12 h-12 md:w-16 md:h-16 lg:w-[5vw] lg:h-[5vw] cursor-pointer"
@@ -65,17 +69,19 @@ const Splash : React.FC<SplashProps> = ({
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Chicken Image */}
-        <div className="relative w-full h-[30vh] md:h-[40%] aspect-[751/404] mt-2">
+        
+        {/* Chicken Girl Image */}
+        
+        {(!isMobile || (isMobile && !showLogin)) &&
+        (<div className="relative w-full h-[30vh] md:h-[40%] aspect-[751/404] mt-2">
           <Image 
             src="/chicken.svg" 
-            alt="Cartoon chicken character enjoying delicious food"
+            alt="One line drawing character of a girl enjoying delicious Chicken leg"
             fill
             className="object-contain"
             priority
           />
-        </div>
+        </div>)}
       </motion.div>
   )
 }

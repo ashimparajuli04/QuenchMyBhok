@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        pinkish: "#FE7272",
+        // pinkish: "#FE7272",
+        pinkish: "#ED5B5B",
         darkPurple: "#412234",
         yellowish:"#EAFFD0",
       },
